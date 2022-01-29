@@ -1,0 +1,10 @@
+<ion-card class="insuranceMenu">
+  <ion-card-header>
+    <ion-card-title>Paquetes</ion-card-title>
+  </ion-card-header>
+  <app-insurance [jsonInsuranceDesign]="jsonInsurance" (selectInsurance)="onSelectInsurance($event)" ></app-insurance>
+  <ion-button  (click)="onSubmit()">
+    Seleccionar
+  </ion-button>
+  <br><br>
+</ion-card>

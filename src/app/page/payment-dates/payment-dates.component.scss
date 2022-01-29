@@ -1,0 +1,188 @@
+.headerCard {
+  height: 230px;
+  box-shadow: none;
+}
+
+.bannerHeader {
+  background: #D6E9EF;
+  padding: 27px 30px;
+}
+
+.title {
+  @media (max-width: 1024px) {
+    font-size: smaller;
+    text-align-last: center;
+  }
+
+  font-size: 30px;
+}
+
+.bannerImg {
+  position: absolute;
+  right: 3.5%;
+  top: 11%;
+  width: 229px;
+
+  @media (max-width: 1024px) {
+    display: none;
+  }
+}
+
+table {
+  width: 100%;
+
+  tr:nth-child(even) {
+    background: #F4F4F4
+  }
+
+  tr:nth-child(odd) {
+    background: #FFF
+  }
+
+  td {
+    p {
+      font-size: 20px;
+
+      @media (max-width: 1024px) {
+        font-size: small;
+      }
+
+      span {
+        color: #262261;
+        font-size: 28px;
+        font-weight: 700;
+
+        @media (max-width: 1024px) {
+          font-size: small;
+        }
+      }
+    }
+
+  }
+
+  th {
+    font-size: 16px;
+    padding: 1.5%;
+
+    @media (max-width: 1024px) {
+      font-size: x-small;
+      white-space: nowrap;
+    }
+  }
+
+  .atraso {
+    color: red;
+  }
+}
+
+.mat-row {
+  mat-row:nth-child(even) {
+    background-color: #F4F4F4;
+  }
+
+  mat-row:nth-child(odd) {
+    background-color: white;
+  }
+}
+
+td.mat-cell.cdk-cell.cdk-column-pagos.mat-column-pagos {
+  color: #262261;
+  font-size: 28px;
+  font-weight: 700;
+
+  @media (max-width: 1024px) {
+    font-size: smaller;
+    padding: 1%;
+  }
+
+}
+
+td {
+  font-size: 20px;
+
+  @media (max-width: 1024px) {
+    font-size: smaller;
+  }
+}
+
+.tableIonic {
+  margin: 3%;
+
+  .headerTable {
+    font-size: 16px;
+    color: black;
+
+    @media (max-width: 1024px) {
+      font-size: x-small;
+    }
+  }
+
+  .paymentRow {
+    color: #262261;
+    font-size: 24px;
+    font-weight: 700;
+
+    @media (max-width: 1024px) {
+      font-size: smaller;
+    }
+  }
+
+  ion-row {
+    font-size: 24px;
+
+    @media (max-width: 1024px) {
+      font-size: smaller;
+    }
+  }
+
+  ion-list-header {
+    margin: 2%;
+  }
+
+  ion-label {
+    margin: 1% 2%;
+  }
+}
+
+.bannerCard {
+  background: #CEC7E0;
+  padding: 27px 30px;
+
+  .card-box-credito {
+    border-right: solid 1px #262261;
+
+    @media (max-width: 1024px) {
+      flex: 0 0 auto;
+      width: -webkit-fill-available;
+      border: none;
+    }
+  }
+
+  color: black;
+
+  h5 {
+    font-size: 16px;
+  }
+
+  h4 {
+    font-size: 24px;
+  }
+
+  ion-col {
+    padding: 9px 5px;
+  }
+
+  font-size: 16px;
+}
+
+ion-chip {
+  color: #664d03;
+  background-color: #fff3cd;
+  font-size: 16px;
+  height: auto;
+  width: -webkit-fill-available;
+
+  ion-icon {
+    font-size: xx-large;
+  }
+}

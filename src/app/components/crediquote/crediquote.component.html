@@ -1,0 +1,29 @@
+<div class="creditQuote">
+  <h1> <ion-icon style="color:#493176; margin-left: -50px;" name="arrow-back-outline"></ion-icon> {{title}}
+  </h1>
+  <div class="inner" [innerHTML]="subtitle"></div>
+  <h3 class="amountSelect">{{amountSelect | currency}}</h3>
+  <div style="text-align: -webkit-center;">
+    <ion-grid class="tabs">
+      <ion-row>
+        <ion-col *ngFor="let item of frecuency">
+          <ion-chip (click)="selectfrecuency(item)" [ngClass]="item.selected ? 'active' : 'nonActive' ">
+            <ion-label>{{item.id}}</ion-label>
+          </ion-chip>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <h4 class="labelsInputs">{{inputAmountText}} <span>{{amountSelect | currency}}</span>  </h4>
+    <div class="inputRangeAmount">
+      <input class="range" type="range" min="{{minAmount}}" max="{{maxAmount}}" value="0" step="{{increment}}"
+        [(ngModel)]="amountSelect" (input)="paymentCalc('amout')">
+    </div>
+    <h4 class="labelsInputs">{{inputPaymentsText}} <span>{{paymentsText}}</span></h4>
+    <div class="inputRangeFrecuency" >
+      <input class="range" type="range" min="{{minFrecuency}}" max="{{maxFrecuency}}" value="0" step="{{incrementFrecuncy}}"
+        [(ngModel)]="payments" (input)="paymentCalc('frecuency')">
+    </div>
+  </div>
+  <div class="inner2" [innerHTML]="content" *ngIf="inner"></div>
+</div>
+

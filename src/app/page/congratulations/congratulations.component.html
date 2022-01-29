@@ -1,0 +1,79 @@
+
+<ion-content class="ion-padding">
+  <ion-card>
+    <br>
+    <div class="creditQuote " *ngIf="pathUrl === 'felicidades_credito_aprobado'">
+      <h1>Contrato de crédito</h1>
+      <p>Tu crédito fue aprobado</p>
+      <br>
+      <ion-grid>
+        <ion-row>
+          <ion-col size="6" offset="4">
+            <ion-img src="../../../assets/icon/mano-check.png" style="width: 70%;"></ion-img>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <br>
+      <p>Monto</p>
+      <p><strong>$25,000</strong></p>
+      <p>Realizaras</p>
+      <p><strong>12 pagos de $2,345.89 pesos</strong></p>
+      <p>Suma depositada</p>
+      <p><strong>$25,000</strong></p>
+      <br>
+      <ion-row >
+        <ion-col size="6">
+          <div style="text-align: center; ">
+            <ion-button (click)="onSubmit()">
+              Tal ves después
+            </ion-button>
+          </div>
+        </ion-col>
+        <ion-col size="6">
+          <div style="text-align: center; ">
+            <ion-button (click)="onSubmitDos()">
+              Continuar
+            </ion-button>
+          </div>
+        </ion-col>
+      </ion-row>
+      <br><br>
+    </div>
+    <div class="creditQuote" *ngIf="pathUrl === 'felicidades_credito_preaprobado'">
+        <h1>Felicidades</h1>
+        <p><strong>Tienes un crédito preaprobado.</strong></p>
+        <br>
+        <p>
+          En las próximas <strong>24</strong> hrs uno de
+          <br> nuestros
+          ejecutivos te contactará
+          <br> para una
+          videollamada.
+        </p>
+        <br><br>
+        <ion-col  size="12">
+          <div style="text-align: center; " class="ion-padding">
+            <ion-button (click)="onSubmitTres()">
+              Continuar
+            </ion-button>
+          </div>
+        </ion-col>
+      </div>
+      <div class="creditQuote" *ngIf="pathUrl === 'felicidades_reedito_cuenta'">
+        <h1>Felicidades</h1>
+        <p><strong>Tu crédito <br>
+          ya esta disponible en tu cuenta</strong></p>
+        <br>
+        <p><a href="" style="color: rgb(65, 0, 151);">Ver mis pagos</a></p>
+        <br><br>
+        <ion-col  size="12" >
+          <div style="text-align: center; " class="ion-padding">
+            <ion-button (click)="onSubmi()">
+              Ver pagos
+            </ion-button>
+          </div>
+        </ion-col>
+      </div>
+
+  </ion-card>
+</ion-content>

@@ -13,13 +13,18 @@
   },
   "private": true,
   "dependencies": {
+    "@angular/animations": "~13.0.0",
+    "@angular/cdk": "^13.2.0",
     "@angular/common": "~13.0.0",
     "@angular/core": "~13.0.0",
     "@angular/forms": "~13.0.0",
+    "@angular/material": "^13.2.0",
     "@angular/platform-browser": "~13.0.0",
     "@angular/platform-browser-dynamic": "~13.0.0",
     "@angular/router": "~13.0.0",
     "@ionic/angular": "^6.0.0",
+    "@ngx-formly/core": "^5.10.30",
+    "@ngx-formly/material": "^5.10.30",
     "rxjs": "~6.6.0",
     "tslib": "^2.2.0",
     "zone.js": "~0.11.4"

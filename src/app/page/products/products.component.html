@@ -1,0 +1,60 @@
+<ion-content class="ion-no-padding">
+  <ion-grid>
+      <ion-row>
+        <ion-col size-xs="12" size-sm="6" size-sm="6" style="width: 18px; height: 100%;">
+          <ion-card >
+            <ion-content>
+              <app-crediquote [jsonCreditQuoteDesign]="jsonCredit" (submitCredit)="onCatch($event)">
+              </app-crediquote>
+              <br>
+              <p class="insuranceLine">Cuenta con el seguro {{seguro}} si desea cambiarlo da <a
+                      href="#/main/seguros">clic aquí</a></p>
+              <ion-label class="labelAgent">Te atendió un asesor:</ion-label>
+              <br>
+              <form style="text-align: center;" [formGroup]="agentForm" (ngSubmit)="onSubmit()">
+                  <ion-item class="insuranceCheck" lines="none">
+                      <ion-checkbox checked="false" slot="start" [formControl]="checkAgent"></ion-checkbox>
+                      <ion-label>Si</ion-label>
+                  </ion-item>
+                  <ion-input type="tel" maxlength="10" formControlName="phoneAgent" class="phoneAgent"
+                      placeholder="Teléfono del asesor" [hidden]="!checkAgent.value"></ion-input>
+                  <div class="error" *ngIf="agentForm.invalid" >
+                          Telefono Requerido
+                  </div>
+                  <br>
+                  <ion-button type="submit" [disabled]="!agentForm.valid">
+                      Seleccionar
+                  </ion-button>
+
+              </form>
+              <br><br>
+            </ion-content>
+
+
+          </ion-card>
+      </ion-col>
+      <!--
+          <ion-col size-xs="12" size-sm="6" size-sm="6" style="width: 18px; height: 100%;">
+              <ion-card>
+                  <app-crediquote [jsonCreditQuoteDesign]="jsonCredit" (submitCredit)="onCatch($event)">
+                  </app-crediquote>
+                  <br>
+                  <p class="insuranceLine">Cuenta con el seguro {{seguro}} si desea cambiarlo da <a href="#/main/seguros">clic aquí</a></p>
+                  <br>
+                  <div style="text-align: center; ">
+                    <ion-button (click)="onSubmit()">
+                      Solicitar
+                    </ion-button>
+                  </div>
+
+              </ion-card>
+          </ion-col>-->
+          <!--<
+          <ion-col size-xs="12" size-sm="6" size-sm="6" style="width: 18px; height: 100%;">
+              <ion-card>
+                  app-lateral-banner [jsonBannerDesign]="jsonBanner"></app-lateral-banner>
+              </ion-card>
+          </ion-col>-->
+      </ion-row>
+  </ion-grid>
+</ion-content>

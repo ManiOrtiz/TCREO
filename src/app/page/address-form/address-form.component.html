@@ -1,0 +1,50 @@
+
+<ion-content class="wizard">
+  <ion-card style="padding: 0 5%;">
+    <h1>Cuéntanos donde vives</h1>
+    <ion-label>Deseas actualizar tus datos?</ion-label>
+    <br>
+    <ion-item lines="none">
+      <ion-checkbox checked="true" (ionChange)="OnChanges('notChange',noUpdateData.value)" slot="start" [formControl]="noUpdateData"></ion-checkbox>
+      <ion-label>No</ion-label>
+    </ion-item>
+    <ion-item  lines="none">
+      <ion-checkbox checked="false" (ionChange)="OnChanges('Change',updateData.value)" slot="start" [formControl]="updateData"></ion-checkbox>
+      <ion-label>Cambiar</ion-label>
+    </ion-item>
+    <app-address-form-two [formDesign]="formDesignClient" (formData)="onDataResponse($event)"></app-address-form-two>
+    <mat-form-field class="addressForm" appearance="fill">
+      <mat-label>Tipo de Domicilio</mat-label>
+      <mat-select [formControl]="typeResidenceValue">
+        <mat-option *ngFor="let item of typeResidence" [value]="item.value">
+          {{item.name}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <br>
+    <mat-form-field class="addressForm">
+      <input matInput [formControl]="timeResidenceValue" placeholder="Tiempo de Residencia (por años)">
+    </mat-form-field>
+    <br>
+    <app-input-file style="display: flex;" (uploadFile)="onUploadFile($event)"></app-input-file>
+    <br>
+    <ion-label>Trabajo desde casa, usar la dirección anterior</ion-label>
+    <ion-item lines="none">
+      <ion-checkbox checked="false" (ionChange)="sameAddressJob(sameAddress.value)" slot="start" [formControl]="sameAddress"></ion-checkbox>
+      <ion-label>Si</ion-label>
+    </ion-item>
+    <app-addressjob-form  [formDesignJob]="formDesignJobClient" (formDataJob)="onDataResponseJob($event)">
+    </app-addressjob-form>
+    <!--
+    <ion-row class="padding">
+      <ion-col class="finalButtons">
+        <ion-button (click)="onSubmit()" expand="block">{{buttonText}}</ion-button>
+      </ion-col>
+    </ion-row>-->
+    <div style="text-align: center; ">
+      <ion-button (click)="onSubmit()">
+        {{buttonText}}
+      </ion-button>
+    </div>
+    <br><br>
+  </ion-card>

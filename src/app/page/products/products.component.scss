@@ -1,0 +1,46 @@
+$colorText: #492E75;
+$colorCheck: #AADB1E;
+
+ion-card {
+    padding: 10px;
+    height: 765px;
+}
+.insuranceLine{
+    font-size: 10px;
+    color: $colorText;
+    a{
+        font-weight: bold;
+        color: $colorText;
+    }
+}
+.labelAgent{
+    font-size: 13px;
+    color: $colorText;
+    font-weight: 500;
+}
+.insuranceCheck{
+    font-size: 11px;
+    color: $colorText;
+    font-weight: 500;
+    margin: 0%;
+    ion-checkbox {
+        --background: #ffffff;
+        --background-checked: #AADB1E;
+        --border-color: #AADB1E;
+        --border-color-checked: #AADB1E;
+        --border-radius: 4px;
+        --border-style: solid;
+        --border-width: 1px;
+        --size: 18px;
+        --transition: background-color 15ms linear;
+        margin: 0 7px 0 0;
+    }
+}
+.phoneAgent{
+    border: solid 1.5px $colorText;
+    border-radius: 10px;
+}
+.error{
+    color: red;
+}
+

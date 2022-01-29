@@ -1,0 +1,11 @@
+<ion-item lines="none">
+  <ion-grid style="width: 100%; height: 100%;">
+    <ion-row style="width: 100%;">
+      <ion-col size="12">
+        <input #oneFileInput type="file" accept=".jpg, .jpeg"
+          (change)="onFileInputChange($event, 'domicilio')" style="display: none;" />
+        <ion-button fill="outline" (click)="oneFileInput.click()">Elegir archivo</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-item>

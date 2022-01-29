@@ -1,0 +1,201 @@
+<ion-content class="ion-padding">
+  <ion-card class="creditQuote ">
+    <h1>Fechas de pago</h1>
+    <ion-button (click)="tableChange('st')"> Simple Table</ion-button>
+      <ion-button (click)="tableChange('mt')"> Material Table</ion-button>
+      <ion-button (click)="tableChange('it')"> Ionic List Table</ion-button>
+      <br><br><br>
+      <table class="table-striped" *ngIf="simpleTable">
+        <thead>
+          <tr>
+            <!-- <th scope="col">Documento</th> -->
+            <th scope="col">Pago 4 de 4</th>
+            <th scope="col">Estatus</th>
+            <th scope="col">Saldo pendiente</th>
+            <th scope="col">Liquidar antes de:</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <!-- <th><a href="#" data-toggle="tooltip" data-placement="top" title="Descarga"><i class="fas fa-file-pdf"></i></a></th> -->
+            <td>
+              <p><span>$1,638.34</span></p>
+            </td>
+            <td>
+              <p>Pagado</p>
+            </td>
+            <td>
+              <p>$9,462.64</p>
+            </td>
+            <td>
+              <p>30/03/2022</p>
+            </td>
+          </tr>
+          <tr>
+            <!-- <th><a href="#" data-toggle="tooltip" data-placement="top" title="Descarga"><i class="fas fa-file-pdf"></i></a></th> -->
+            <td>
+              <p><span>$1,638.34</span></p>
+            </td>
+            <td>
+              <p>Pagado</p>
+            </td>
+            <td>
+              <p>$9,462.64</p>
+            </td>
+            <td>
+              <p>30/03/2022</p>
+            </td>
+          </tr>
+          <tr class="atraso">
+            <!-- <th><a href="#" data-toggle="tooltip" data-placement="top" title="Descarga"><i class="fas fa-file-pdf"></i></a></th> -->
+            <td>
+              <p><span>$1,638.34</span></p>
+            </td>
+            <td>
+              <p>Atrasado</p>
+            </td>
+            <td>
+              <p>$9,462.64</p>
+            </td>
+            <td>
+              <p>30/03/2022</p>
+            </td>
+          </tr>
+          <tr class="atraso">
+            <!-- <th><a href="#" data-toggle="tooltip" data-placement="top" title="Descarga"><i class="fas fa-file-pdf"></i></a></th> -->
+            <td>
+              <p><span>$1,638.34</span></p>
+            </td>
+            <td>
+              <p>Atrasado</p>
+            </td>
+            <td>
+              <p>$9,462.64</p>
+            </td>
+            <td>
+              <p>30/03/2022</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" *ngIf="materialTable">
+        <ng-container matColumnDef="pagos">
+          <th mat-header-cell *matHeaderCellDef> Pagos </th>
+          <td mat-cell *matCellDef="let element"> {{element.pagos | currency}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="estatus">
+          <th mat-header-cell *matHeaderCellDef> Estatus </th>
+          <td mat-cell *matCellDef="let element"> {{element.estatus}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="saldo">
+          <th mat-header-cell *matHeaderCellDef> Saldo pendiente </th>
+          <td mat-cell *matCellDef="let element"> {{element.saldo | currency}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="liquidar">
+          <th mat-header-cell *matHeaderCellDef> Liquidar antes de: </th>
+          <td mat-cell *matCellDef="let element"> {{element.liquidar}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns" style="font-size: 16px;"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns; " style="border: white;"
+          [style.color]="row.estatus === 'Atrasado' ? 'red !important' : 'black'"></tr>
+      </table>
+
+      <ion-grid *ngIf="ionicTable">
+        <ion-row class="tableIonic">
+
+          <ion-col>
+            <ion-list-header>
+              <ion-label class="headerTable">Pagos</ion-label>
+            </ion-list-header>
+            <ion-row class="paymentRow" *ngFor="let item of dataSource">
+              <ion-label>{{item.pagos | currency}}</ion-label>
+            </ion-row>
+          </ion-col>
+
+          <ion-col>
+            <ion-list-header>
+              <ion-label class="headerTable">Estatus</ion-label>
+            </ion-list-header>
+            <ion-row *ngFor="let item of dataSource"
+              [style.color]="item.estatus === 'Atrasado' ? 'red !important' : 'black'">
+              <ion-label>{{item.estatus}}</ion-label>
+            </ion-row>
+          </ion-col>
+
+          <ion-col>
+            <ion-list-header>
+              <ion-label class="headerTable">Saldo Pendiente</ion-label>
+            </ion-list-header>
+            <ion-row *ngFor="let item of dataSource"
+              [style.color]="item.estatus === 'Atrasado' ? 'red !important' : 'black'">
+              <ion-label>{{item.saldo | currency}}</ion-label>
+            </ion-row>
+          </ion-col>
+
+          <ion-col>
+            <ion-list-header>
+              <ion-label class="headerTable">Liquidar antes de:</ion-label>
+            </ion-list-header>
+            <ion-row *ngFor="let item of dataSource"
+              [style.color]="item.estatus === 'Atrasado' ? 'red !important' : 'black'">
+              <ion-label>{{item.liquidar}}</ion-label>
+            </ion-row>
+          </ion-col>
+
+        </ion-row>
+      </ion-grid>
+
+
+
+
+  </ion-card>
+  <br><br>
+  <ion-card class=" ion-padding">
+    <div  style="text-align: center; ">
+    <p > <strong>Referencias De Pago</strong></p>
+    <small><strong>Realiza Tu Pago En Los Siguientes Establecimiento</strong></small>
+    <ion-grid>
+      <ion-row>
+        <ion-col size="6" offset="4">
+          <ion-img src="../../../assets/icon/oxxo-logo.svg" style="width: 70%;"></ion-img>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <p>Referencia de Pago: <strong>84002271338233</strong> </p>
+    <ion-grid>
+      <ion-row>
+        <ion-col size="6" offset="4">
+          <ion-img src="../../../assets/icon/grupo-de-negocios.jpg" style="width: 70%;"></ion-img>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <small><strong>Pago en Sucursal Punto de Pago</strong></small>
+    <p>Referencia de Pago: <strong>84002271338233</strong> </p>
+    <hr>
+    <ion-grid>
+      <ion-row>
+        <ion-col size="6" offset="4">
+          <ion-img src="../../../assets/icon/bbva.jpg" style="width: 70%;"></ion-img>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    </div>
+    <p>Referencia de Pago: <strong>84002271338233</strong> </p>
+    <p>Beneficiario:  <strong>CAME, S.A. de C.V., S.F.P.</strong></p>
+    <p>Banco: <strong>BBVA</strong></p>
+    <p>Cuenta: <strong>0115235499</strong></p>
+    <p>Clabe: <strong>012180001152354993</strong></p>
+  </ion-card>
+  <br>
+  <div style="text-align: center; ">
+    <ion-button (click)="onSubmit()">
+      Cerrar
+    </ion-button>
+  </div>
+
+</ion-content>

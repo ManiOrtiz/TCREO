@@ -1,0 +1,54 @@
+
+<ion-content class="wizard">
+  <ion-card style="padding: 0 5%;">
+    <h1> Cuéntanos de tu negocio</h1>
+    <br>
+
+   <app-business-form [formDesign]="formDesignClient" (formDataa)="onDataResponse($event)"></app-business-form>
+    <ion-label>Tu negocio se comparte con alguien más o se tiene un negocio extra?</ion-label>
+    <br>
+    <ion-item lines="none">
+      <ion-checkbox checked="false" (ionChange)="sameAddressJob(sameAddress.value)" slot="start" [formControl]="sameAddress"></ion-checkbox>
+      <ion-label>Si</ion-label>
+    </ion-item>
+    <br>
+    <div *ngIf="isTruet">
+      <app-business-more  [formDesignJob]="formDesignJobClient" (formDataJob)="onDataResponseJob($event)">
+      </app-business-more>
+      <app-input-file style="display: flex;" (uploadFile)="onUploadFile($event)"></app-input-file>
+    </div>
+    <br>
+    <h1>Queremos saber más de ti</h1>
+    <app-business-aboutyou [formDesignaccountYou]="formDesignBusinessAbout" (formDataAbout)="onDataResponseAbout($event)"></app-business-aboutyou>
+    <h1>Beneficiarios</h1>
+    <p><strong>Beneficiario 1</strong></p>
+    <app-beneficiaries-one [formDesignbeneficiaries]="formDesignBeneficiaries" (formDataBeneficiaries)="onDataBeneficiaries($event)"></app-beneficiaries-one>
+    <ion-label>Es la misma dirección de mi domicilio</ion-label>
+    <br>
+    <ion-item lines="none">
+      <ion-checkbox checked="false" slot="start" [formControl]="sameAddress"></ion-checkbox>
+      <ion-label>Si</ion-label>
+    </ion-item>
+    <br>
+    <p><strong>Beneficiario 2</strong></p>
+      <app-beneficiaries-two [formDesignbeneficiariesTwo]="formDesignBeneficiariesTwo" (formDataBeneficiariesTwo)="onDataBeneficiariesTwo($event)"></app-beneficiaries-two>
+      <ion-label>Es la misma dirección de mi domicilio</ion-label>
+      <br>
+      <ion-item lines="none">
+        <ion-checkbox checked="false" slot="start" [formControl]="sameAddress"></ion-checkbox>
+        <ion-label>Si</ion-label>
+      </ion-item>
+      <br>
+    <!--
+    <ion-row class="padding">
+      <ion-col class="finalButtons">
+        <ion-button (click)="onSubmit()" expand="block">{{buttonText}}</ion-button>
+      </ion-col>
+    </ion-row>-->
+    <div style="text-align: center; ">
+      <ion-button (click)="onSubmit()">
+        {{buttonText}}
+      </ion-button>
+    </div>
+    <br><br>
+  </ion-card>
